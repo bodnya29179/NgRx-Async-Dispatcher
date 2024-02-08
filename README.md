@@ -127,7 +127,7 @@ import { yourAction, yourActionSuccess } from './your-actions'; // Import your N
 
 @Injectable()
 export class YourEffect {
-  yourAction$ = createEffect(() => {
+  readonly yourAction$ = createEffect(() => {
     return this.actions$
       .pipe(
         /* Get the dispatched action */
@@ -181,8 +181,7 @@ export class YourComponent {
   isLoading: boolean;
   data: any;
 
-  constructor(private readonly yourService: YourService) {
-  }
+  constructor(private readonly yourService: YourService) {}
 
   async ngOnInit(): void {
     this.isLoading = true;
